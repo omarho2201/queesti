@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es"></html>
+
+<html>
+  <head>
+    <script
+          src="https://code.jquery.com/jquery-1.12.4.min.js"
+          integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+          crossorigin="anonymous"></script>
+          <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  </head>
+    <body>
+      <div class="container" style="background-color:rgba(53, 30, 30, 0.5); align-content: center; top: 50%; padding: 30px 10px;border-radius: 20px;">
+        <h1 style="color: white;font-size: 2em;text-align: center;font-family: Gill Sans Extrabold, Helvetica, sans-serif;">Pregunta seleccionada</h1>
+          <form action="/update/{{cliente.0}}" method="POST">
+                <div class="nice-wrap">
+                    <input class="nice-textbox" style="position: absolute; top: 250px;" type="text" name="pregunta" placeholder="Pregunta" value="{{cliente.1}}">
+                    <div class="middle"> <button class="my-button">Guardar cambios</button> </div>
+                </div>
+          </form>
+      </div>
+    </body>
+    
+</html>
+
+<style>
+    *{box-sizing: border-box;}
+
+    html {
+    position: relative;
+    min-height: 100%;
+    }
+    @import url(https://fonts.googleapis.com/css?family=Squada+One);
+    body {
+    background: #344557 url(http://bit.ly/2gPLxZ4) 0 0 no-repeat;
+    background-size: cover;
+    &:after {
+      content: '';
+      @extend .absolute-centering;
+      background: rgba(#344557, .85);
+    }
+
+}
+}
+.h1{
+		color: white;
+		font-size: 2em;
+    text-align: center;
+    font-family: "Gill Sans Extrabold", Helvetica, sans-serif;
+  }
+
+
+/* .container{  
+  h1{
+    color: #fff;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 50px;
+  }
+} */
+
+.nice-wrap{
+  position: relative;
+  width: 500px;
+  height: 100px;
+ 
+  margin: 0 auto;
+}
+
+.nice-label{
+  position: absolute;
+  top: 15px;
+  left: 10px;
+  font-size: 16px;
+  color: #a0a0a0;
+  font-weight: bold;
+  transition: all 0.25s ease;
+  
+  &.focus{
+    top: -25px;
+    left: 5px;
+    font-size: 14px;
+    color: #fff;
+  }
+}
+
+.nice-textbox{
+  position: relative;
+  display: block;
+  width: 500px;
+  margin-top: 50px;
+  padding: 15px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  color: #a0a0a0;
+  outline: none;
+}
+
+.my-button {
+  position: absolute;
+  top: 400px;
+  right: 83px;
+  width: 20rem;
+  height: 5rem;
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: bold;
+  display: inline-block;
+  border: .25rem solid #fff;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 3rem;
+  background-color: transparent;
+  outline: none;
+  box-sizing: 10px;
+  transition: all ease .5s;
+  cursor: pointer;
+}
+
+.my-button:hover{
+  background-color:rgba(255, 0, 0, 0.521);
+  color: white;
+}
+
+.pending {
+  font-size: 0;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  border-left-color: transparent;
+  animation: rotate 1.4s ease .5s infinite;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes bounce {
+  0% {
+    transform: scale(.9);
+  }
+}
+
+.success {
+  position: relative;
+  background-color: #fff;
+  animation: bounce .3s ease-in;
+    &:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: .75rem;
+    margin: 0 auto;
+    width: 3rem;
+    height: 3rem;
+    background: url('https://image.flaticon.com/icons/svg/1828/1828643.svg') no-repeat;
+    background-size: contain;
+  }
+}
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+
+<script>
+    $(document).ready(function(){
+   $('.nice-textbox').blur(function() {
+        if($(this).val().length === 0){
+          $('.nice-label').removeClass("focus");
+        }
+        else { returns; }
+      })
+      .focus(function() {
+        $('.nice-label').addClass("focus")
+      });
+});
+
+$(document).ready(function(){
+  
+  $(".my-button").click(function(){
+    $(this).addClass("pending");
+    
+    setTimeout(function(){
+      $(".my-button").addClass("success");
+    }, 3500)
+    
+    setTimeout(function(){
+      $(".my-button").removeClass("pending");
+      $(".my-button").removeClass("success");
+    }, 5000)
+    
+  })
+  
+});
+</script>

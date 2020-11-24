@@ -1,0 +1,28 @@
+{% extends "layout.html"%}
+{% block body%}
+    <div class="container">
+        <h1>Sube tu archivo de cursantes</h1>
+        <form method="POST" action="" enctype="multipart/form-data">
+            <div class="form-group">
+                <p><input type="file" name="Archivo" class="form-control-file"></p>
+                <p><input type="submit" value="Submit"  class="btn btn-primary"></p>      
+            </div>
+        </form>
+        <h2>Clientes del curso</h2>
+        <ul class="list-group">
+          {% for evento in eventos %}
+          <li class="list-group-item justify-content-between">
+            {{ evento.1 }}
+            <span class="badge badge-default badge-pill">{{ evento.2 }}</span>
+            <h1>{{ evento.0 }}</h1>
+          </li>
+          {% else %}
+          <li><em>No hay lecturas registradas!</em></li>
+        {% endfor %}
+        </ul>
+
+        <footer class="footer">
+          <p>Registros reservados</p>
+      </footer>
+    </div>
+{% endblock %}

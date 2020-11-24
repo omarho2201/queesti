@@ -1,0 +1,49 @@
+{% extends "layout.html"%}
+{% block body%}
+<!DOCTYPE html>
+<html>
+    <body>
+        <div class="container">
+            <h1>Cuestionarios disponibles</h1>
+
+                <label for="cursos">Elige el curso del cual deseas ver el cuestionario</label>
+<!--                 <select name="cursos">
+                    <option value="sap">SAP100</option>
+                    <option value="scrumm">SCRUM100</option>
+                </select>    --> 
+                <table class="table table-bordered table-hover" >
+                    <thead class="black white-text">
+                        <tr class="success">
+                            <td># pregunta</td>
+                            <td>Preguntas</td>
+                            <td>Editar</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for cliente in clientes  %}
+                        <tr>
+                            <td>{{cliente.0}}</td>
+                            <td>{{cliente.1}}</td>
+                            <td>
+                                <a href="/edit/{{cliente.0}}">Editar</a>
+                                <a href="/delete/{{cliente.0}}">Eliminar</a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <div class="card card-body">
+                    <form action= "/addpregunta" method="POST">
+                        <div class="form-group">
+                            <div class="form-group"> 
+                                <input type="text" name="insertp" class="form-control" placeholder="Escribe la pregunta que quieres agregar">
+                            </div>
+                            <div class="form-gorup">
+                                <button type="submit" class="btn btn-primary btn-block">Agregar pregunta</button>
+                            </div>
+                    </form>  
+                </div>    
+        </div>
+    </body>    
+</html>
+{% endblock %}

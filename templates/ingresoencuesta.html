@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html>
+  <br>
+  <br>
+  <br>
+    <div class="container">
+        <h1>
+          Encuesta de curso
+        </h1>
+        <p id="description"> Gracias por elegirnos para tomar tu curso SAP <br>
+          Favor de contestar las siguientes preguntas en una escala del 1 al 5,<br>
+           siendo 1 la calificación más baja y 5 la más alta.</p>
+            <body>
+              <div class="container" style="background-color:rgba(0,0,0,0.5); align-content: center; top: 50%; padding: 50px 30px;
+              borde-radius: 10
+
+              px;">
+                <main>
+                  <div class="form-background">
+                    <form action="/resulcliente1" method="POST">
+
+                      <table class="table table-bordered table-hover">
+
+                          <tbody  class="tabla">
+                              {% for cliente in clientes  %}
+                              <tr>
+                              <!--    <td>{{cliente.0}}</td> -->
+                                  <td>{{cliente.1}}</td>
+                                  <td>
+                                      <div name="lista[]" class="custom-dropdown">
+                                                <select name="lista[]">
+                                                  <option  value="1">Itil</option>
+                                                  <option  value="2">scrum</option>
+                                                  <option  value="3">sap</option>
+                                                  <option  value="4">agile</option>
+                                                </select>
+                                          <!-- <input type="text" name="lista[]" class="nice-textbox" placeholder="respuesta"> -->
+                                          <!-- <button type="submit" class="btn btn-primary btn-block">Finalizar</button> -->
+                                      </div>
+                                  </td>
+                              </tr>
+                              {% endfor %}
+                          </tbody>
+                      </table><br><br><br><br><br>
+                      <div class="wrap">
+                        <button type="submit" class="button button-block" href="/resulcliente1">Terminar</button>
+                      </div>
+                          <span class="loader orange"></span>
+                          
+                      <div class="check-wrapper">
+                      <svg version="1.1"width="65px" height="38px" viewBox="0 0 64.5 37.4">
+                      <polyline class="check" points="5,13 21.8,32.4 59.5,5 "/>
+                      </svg>
+                      </div>
+                        
+                      </div>
+                          
+                          <svg xmlns="http://www.w3.org/2000/svg" version="1.1">  <defs>    <filter id="goo">      <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />      <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo" />      <feBlend in="SourceGraphic" in2="goo" />    </filter>  </defs></svg>
+                  </form>
+                  </div>
+                  
+                </main>
+              </div>
+            </body>      
+
+    </div>
+    
+</html>
+
+<style>
+  html {
+    position: relative;
+    min-height: 100%;
+    }
+    @import url(https://fonts.googleapis.com/css?family=Squada+One);
+    body {
+    background: #344557 url("https://raw.githubusercontent.com/JoykishanSharma/Joy-Apps-Survey-Form/dev_test/img/survey_background.jpg") 0 0 no-repeat;
+    background-size: cover;
+    &:after {
+      content: '';
+      @extend .absolute-centering;
+      background: rgba(#344557, .85);
+    }
+
+}
+}
+
+
+main {
+	width: 64%;
+	margin: 5vh auto;
+}
+    *{box-sizing: border-box;}
+
+html, body{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  font-family: 'Arial', sans-serif;
+}
+
+h1 {
+	font-family: "Montserrat", sans-serif;
+	font-size: 3em;
+	filter: drop-shadow(2px 3px 2px black);
+	color: #37af65;
+	margin-top: 30px;
+  text-align: center;
+}
+
+p {
+	font-family: "Montserrat", sans-serif;
+	font-size: 2em;
+	filter: drop-shadow(2px 3px 2px black);
+	color: #69da38;
+	margin-top: 30px;
+}
+
+.nice-wrap{
+  position: relative;
+  width: 500px;
+  height: 100px;
+ 
+  margin: 0 auto;
+}
+
+.nice-label{
+  position: absolute;
+  top: 15px;
+  left: 10px;
+  font-size: 16px;
+  color: #a0a0a0;
+  transition: all 0.25s ease;
+  
+  &.focus{
+    top: -25px;
+    left: 5px;
+    font-size: 14px;
+    color: black;
+  }
+}
+
+.nice-textbox{
+  position: relative;
+  display: block;
+  width: 500px;
+  margin-top: 50px;
+  padding: 15px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  color: black;
+  outline: none;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:400');
+
+.wrap {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button {
+  min-width: 300px;
+  min-height: 60px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 22px;
+  text-transform: uppercase;
+  letter-spacing: 1.3px;
+  font-weight: 700;
+  color: #313133;
+  background: #4FD1C5;
+background: linear-gradient(90deg, rgba(129,230,217,1) 0%, rgba(79,209,197,1) 100%);
+  border: none;
+  border-radius: 1000px;
+  box-shadow: 12px 12px 24px rgba(79,209,197,.64);
+  transition: all 0.3s ease-in-out 0s;
+  cursor: pointer;
+  outline: none;
+  position: relative;
+  padding: 10px;
+  }
+
+button::before {
+content: '';
+  border-radius: 1000px;
+  min-width: calc(300px + 12px);
+  min-height: calc(60px + 12px);
+  border: 6px solid #00FFCB;
+  box-shadow: 0 0 60px rgba(0,255,203,.64);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: all .3s ease-in-out 0s;
+}
+
+.button:hover, .button:focus {
+  color: #313133;
+  transform: translateY(-6px);
+}
+
+button:hover::before, button:focus::before {
+  opacity: 1;
+}
+
+button::after {
+  content: '';
+  width: 30px; height: 30px;
+  border-radius: 100%;
+  border: 6px solid #00FFCB;
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: ring 1.5s infinite;
+}
+
+button:hover::after, button:focus::after {
+  animation: none;
+  display: none;
+}
+
+@keyframes ring {
+  0% {
+    width: 30px;
+    height: 30px;
+    opacity: 1;
+  }
+  100% {
+    width: 300px;
+    height: 300px;
+    opacity: 0;
+  }
+}
+
+.table{
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  color:rgb(255, 255, 255);
+  font-size: 2em;
+}
+
+.custom-dropdown {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 10px; /* demo only */
+}
+
+.custom-dropdown select {
+  background-color: #1abc9c;
+  color: #fff;
+  font-size: inherit;
+  padding: .5em;
+  padding-right: 2.5em;	
+  border: 0;
+  margin: 0;
+  border-radius: 3px;
+  text-indent: 0.01px;
+  text-overflow: '';
+  -webkit-appearance: button; /* hide default arrow in chrome OSX */
+}
+
+.custom-dropdown::before,
+.custom-dropdown::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+}
+
+.custom-dropdown::after { /*  Custom dropdown arrow */
+  content: "\25BC";
+  height: 1em;
+  font-size: .625em;
+  line-height: 1;
+  right: 1.2em;
+  top: 50%;
+  margin-top: -.5em;
+}
+
+.custom-dropdown::before { /*  Custom dropdown arrow cover */
+  width: 2em;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  border-radius: 0 3px 3px 0;
+}
+
+.custom-dropdown select[disabled] {
+  color: rgba(0,0,0,.3);
+}
+
+.custom-dropdown select[disabled]::after {
+  color: rgba(0,0,0,.1);
+}
+
+.custom-dropdown::before {
+  background-color: rgba(0,0,0,.15);
+}
+
+.custom-dropdown::after {
+  color: rgba(0,0,0,.4);
+}
+</style>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+
+<script>
+    $(document).ready(function(){
+   $('.nice-textbox').blur(function() {
+        if($(this).val().length === 0){
+          $('.nice-label').removeClass("focus");
+        }
+        else { returns; }
+      })
+      .focus(function() {
+        $('.nice-label').addClass("focus")
+      });
+});
+
+
+
+</script>

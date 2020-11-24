@@ -1,0 +1,208 @@
+{% extends "layout.html"%}
+{% block body%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script
+        src="https://code.jquery.com/jquery-1.12.4.min.js"
+        integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+        crossorigin="anonymous"></script>
+</head> 
+    <body>
+        <div class="container">
+            <h1>Resultados generales de los cursos</h1> 
+                <table class="table table-bordered ">
+                    <thead class="black white-text">
+                        <tr>
+                        <td >Cursos</td>
+                        <td >Promedio general de las encuestas</td>
+                        <!-- <th scope="col">Ver encuesta</th> -->
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <form action="/resultadocurso" method="POST">
+                            <tr>
+                                <td><button type="submit">SAP100</button><input name="resul" style="display:none;" type="text" value="1"></td>
+                                <td><ul><li class="chart" data-percent="{{promedio[0][0]}}"><span>{{promedio[0][0]}}</span>General</li></ul></td>
+                            </tr>
+                        </form>
+                        <form action="/resultadocurso" method="POST">
+                            <tr>
+                                <td ><button href="/resultadocurso"> SCRUM100</button><input name="resul" style="display:none;background-color: none;" type="text" value=2></td>
+                                <td><ul><li class="chart" data-percent="{{promedio1[0][0]}}"><span>{{promedio1[0][0]}}</span>General</li></ul></td>
+                                </tr>
+                        </form>
+                        <form action="/resultadocurso" method="POST">
+                            <tr>
+                                <td ><button class="1" href="/resultadocurso"> ITIL100</button><input name="resul" style="display:none;" type="text" value="3"></td>
+                                <td><ul><li class="chart" data-percent="{{promedio2[0][0]}}"><span>{{promedio2[0][0]}}</span>General</li></ul></td>
+                                </tr>
+                        </form>
+                        <form action="/resultadocurso" method="POST">
+                            <tr>
+                                <td ><button class="2" href="/resultadocurso"> AGILE100</button><input name="resul" style="display:none;" type="text" value="4"></td>
+                                <td><ul><li class="chart" data-percent="{{promedio3[0][0]}}"><span>{{promedio3[0][0]}}</span>General</li></ul></td>
+                            </tr>
+                        </form>
+                        
+                        
+
+        
+                    </tbody>
+                    </table>
+
+        </div>    
+        <div class="chat_icon" >
+            <img src="https://2.bp.blogspot.com/-0qBf3qbIyeU/T5jafCjlcTI/AAAAAAAAPLw/y2lQhV3eFdE/s1600/EVE.png" class="eva">
+          </div>
+      
+          <div class="chat_box">
+            <iframe src='https://webchat.botframework.com/embed/botty23?s=Rj0ZWhU8Gx0.eK6G3dAIb-tncvLg-SkwmUzvjR5AoyCuJOYj-BJbiN8'  style='min-width: 200px; width: 100%; min-height: 610px;' class="chat"></iframe>
+          </div>
+    </body>
+</html>
+
+<style>
+
+tr td button{
+    background-color: transparent;
+    border: none ;
+}
+tr td{
+    text-align: center;    
+}
+
+ul {
+  margin-bottom: 4em;
+}
+.chart {
+  display: inline-block;
+  top:27px;
+  width: 95px;
+  height: 95px;
+  margin: 0 10px;
+  vertical-align: top;
+  position: relative;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding-top: 20px;
+}
+.chart span {
+  display: block;
+  font-size: 2em;
+  font-weight: normal;
+}
+.chart canvas {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+      .eva{
+		width: 81px;
+/* 		display: block;
+		position: relative;
+		right: -600px;
+		top: -200px; */
+  }
+  .chat_icon{
+	position: fixed;
+	right: 30px;
+	bottom: 0;
+	font-size: 80px;
+	color: #ffffff;
+	cursor: pointer;
+	z-index: 1000;
+}
+
+.chat_box{
+    position: fixed;
+    top: 240px;
+	right: 20px;
+	bottom: 100px;
+	width: 400px;
+	height: 65vh;
+	background: #dedede;
+	z-index: 1000;
+	transition: all 0.3s ease-out;
+	transform:scaleY(0);
+}
+
+.chat_box.active{
+	transform: scaleY(1);
+}
+    h1{
+		color: white;
+		font-size: 4em;
+		text-align: center;
+/* 		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translateX(-50%) translateY(-50%); */
+    }
+    
+thead{
+    background-color:rgba(255, 0, 0, 0.6);;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+tbody td{
+    background-color: hsla(0, 100%, 70%, 0.3);;
+    color: white;
+    text-align: center;
+  }
+tbody tr{
+    color: white;
+    text-align:center;
+}
+
+tbody tr:hover{
+    background-color: rgb(248, 208, 134, 0.3);
+    color: black;
+  }
+tbody button{
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    position: relative;
+    top: 55px;
+}
+
+tbody a:hover{
+    color: black;
+}
+
+
+
+</style>
+<script>
+    $(document).ready(function(){
+		$('.chat_icon').click(function(event){
+			$('.chat_box').toggleClass('active');
+		});
+	}
+    )
+    
+    /*-----------------------------------------------graficas---------------------------------------*/
+    !function(){var a=function(a,b){var c=document.createElement("canvas");"undefined"!=typeof G_vmlCanvasManager&&G_vmlCanvasManager.initElement(c);var d=c.getContext("2d");if(c.width=c.height=b.size,a.appendChild(c),window.devicePixelRatio>1){var e=window.devicePixelRatio;c.style.width=c.style.height=[b.size,"px"].join(""),c.width=c.height=b.size*e,d.scale(e,e)}d.translate(b.size/2,b.size/2),d.rotate((-0.5+b.rotate/180)*Math.PI);var f=(b.size-b.lineWidth)/2;b.scaleColor&&b.scaleLength&&(f-=b.scaleLength+2);var g=function(a,b,c){c=Math.min(Math.max(0,c||1),1),d.beginPath(),d.arc(0,0,f,0,2*Math.PI*c,!1),d.strokeStyle=a,d.lineWidth=b,d.stroke()},h=function(){var a,c,e=24;d.lineWidth=1,d.fillStyle=b.scaleColor,d.save();for(var e=24;e>=0;--e)0===e%6?(c=b.scaleLength,a=0):(c=.6*b.scaleLength,a=b.scaleLength-c),d.fillRect(-b.size/2+a,0,c,1),d.rotate(Math.PI/12);d.restore()};Date.now=Date.now||function(){return+new Date};var i=function(){return window.requestAnimationFrame||window.webkitRequestAnimationFrame||window.mozRequestAnimationFrame||function(a){window.setTimeout(a,1e3/60)}}();this.clear=function(){d.clearRect(b.size/-2,b.size/-2,b.size,b.size)},this.draw=function(a){this.clear(),b.scaleColor&&h(),b.trackColor&&g(b.trackColor,b.lineWidth),d.lineCap=b.lineCap;var c;c="function"==typeof b.barColor?b.barColor(a):b.barColor,a>0&&g(c,b.lineWidth,a/5)}.bind(this),this.animate=function(a,c){var d=Date.now();b.onStart(a,c);var e=function(){var f=Math.min(Date.now()-d,b.animate),g=b.easing(this,f,a,c-a,b.animate);this.draw(g),b.onStep(a,c,g),f>=b.animate?b.onStop(a,c):i(e)}.bind(this);i(e)}.bind(this)},b=function(b,c){var d,e={barColor:"#ef1e25",trackColor:"#f9f9f9",scaleColor:"#dfe0e0",scaleLength:5,lineCap:"round",lineWidth:3,size:110,rotate:0,animate:1e3,renderer:a,easing:function(a,b,c,d,e){return(b/=e/2)<1?d/2*b*b+c:-d/2*(--b*(b-2)-1)+c},onStart:function(){},onStep:function(){},onStop:function(){}},f={},g=0,h=function(){this.el=b,this.options=f;for(var a in e)e.hasOwnProperty(a)&&(f[a]=c&&"undefined"!=typeof c[a]?c[a]:e[a],"function"==typeof f[a]&&(f[a]=f[a].bind(this)));f.easing="string"==typeof f.easing&&"undefined"!=typeof jQuery&&jQuery.isFunction(jQuery.easing[f.easing])?jQuery.easing[f.easing]:e.easing,d=new f.renderer(b,f),d.draw(g),b.dataset&&b.dataset.percent&&this.update(parseInt(b.dataset.percent,10))}.bind(this);this.update=function(a){return a=parseInt(a,10),f.animate?d.animate(g,a):d.draw(a),g=a,this}.bind(this),h()};window.EasyPieChart=b}();
+
+    var options = {
+    scaleColor: false,
+    trackColor: 'rgba(255,255,255,0.3)',
+    barColor: '#E7F7F5',
+    lineWidth: 6,
+    lineCap: 'butt',
+    size: 95
+    };
+
+    window.addEventListener('DOMContentLoaded', function() {
+    var charts = [];
+    [].forEach.call(document.querySelectorAll('.chart'),  function(el) {
+        charts.push(new EasyPieChart(el, options));
+    });
+    });
+</script>
+
+{% endblock %}

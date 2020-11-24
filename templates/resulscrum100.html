@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+    <!-- Booststrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!--  /Booststrap -->
+
+    <link rel="stylesheet" href="css/icons.css">
+    <link rel="stylesheet" href="css/grid.css">
+    <link rel="stylesheet" href="css/modal.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Resultados del curso</title>
+</head>
+    <body>
+        <div class="container">
+            <div class="container" style="background-color:rgba(247, 85, 85, 0.5); align-content: center; top: 50%; padding: 30px 10px;
+              borde-radius: 10px;">
+                <h1>
+                    En este apartado podrás ver los resultados de cada cursante y podrás subir una foto para analizar sus expresiones
+                </h1>
+            </div> <br>
+            <div class="container" style="background-color:rgba(0,0,0,0.5); align-content: center; top: 50%; padding: 30px 10px;
+            borde-radius: 8px;">
+                <h2>Curso SCRUM100</h2>
+
+                    <table class="table table-bordered " >
+                        <thead class="black white-text">
+                            <tr>
+                                <!-- <td># pregunta</td> -->
+                                <td>Preguntas</td>
+                                <td>Respuestas</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for respuesta in respuestas  %}
+                            <tr>
+                                <!-- <td>{{respuesta.0}}</td> -->
+                                <td>{{respuesta.1}}</td>                              
+                                <td>{{respuesta.2}}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+            </div>    
+
+
+                
+                <div class="loader" id="loader"></div>    
+                <form id="upload-file" method="POST" enctype="multipart/form-data">
+                    <h1>Sube tu foto de los cursantes</h1>
+
+                  <input style="padding-left: 5px;" id="file-upload" type="file" name="file" accept="image/*">
+                  <div class="image-preview" id="imagePreview">
+                      <img src="" alt="image Preview" class="image-preview_image">
+                      <span class="image-preview_default-text">Precarga de la imagen</span>
+                  </div>
+                  <div>
+                      <span class="emociones">emociones</span>
+                  </div>
+                  <button type="button" id="upload-file-btn" class="btn btn-primary">Analizar foto</button>
+                </form>
+                <form action="" method="POST">
+                    <button class="my-button" type="submit"><a href="/resultados" class="btn btn-success">Regresar</a></button>
+                </form>
+                
+            </div>
+            
+    </body>
+</html>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">    
+<style>
+@import url(https://fonts.googleapis.com/css?family=Squada+One);
+table{
+    color: white;
+}
+
+h1{
+		color: white;
+		font-size: 2em;
+        text-align: center;
+        font-family: "Gill Sans Extrabold", Helvetica, sans-serif;
+/* 		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translateX(-50%) translateY(-50%); */
+	}
+    h2{
+		color: white;
+		font-size: 3em;
+        text-align: center;
+        font-family: "Gill Sans Extrabold", Helvetica, sans-serif;
+
+/* 		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translateX(-50%) translateY(-50%); */
+	}
+
+  @import "//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css";
+  @import url(https://fonts.googleapis.com/css?family=Squada+One);
+  
+html {
+    position: relative;
+    min-height: 100%;
+    }
+    @import url(https://fonts.googleapis.com/css?family=Squada+One);
+    body {
+    background: #344557 url(http://bit.ly/2gPLxZ4) 0 0 no-repeat;
+    background-size: cover;
+    &:after {
+      content: '';
+      @extend .absolute-centering;
+      background: rgba(#344557, .85);
+    }
+
+}
+}
+
+.navbar-brand .icono{
+  font-size: 300px;
+}
+
+.emociones{
+    width: 300px;
+    min-height: 100px;
+    border: 2px solid #dddddd;
+    margin-top: 15px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: #cccccc;
+}
+
+.image-preview{
+    width: 300px;
+    min-height: 100px;
+    border: 2px solid #dddddd;
+    margin-top: 15px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: #cccccc;
+}
+
+.image-preview_image{
+    display: none;
+    width: 100%;
+}
+
+.my-button {
+  width: 20rem;
+  height: 5rem;
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: bold;
+  display: inline-block;
+  border: .25rem solid #fff;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 3rem;
+  background-color: transparent;
+  outline: none;
+  box-sizing: border-box;
+  transition: all ease .5s;
+  cursor: pointer;
+}
+table{
+    border: 1px solid #ffffff;
+    border-collapse: collapse;
+}
+thead tr{
+    background-color:rgba(255, 0, 0, 0.6);;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    border: 1px solid #000000;
+
+  }
+  tbody td{
+    background-color: hsla(0, 100%, 70%, 0.3);;
+    color: white;
+  }
+  
+  tbody tr:hover{
+    background-color: rgb(248, 208, 134, 0.3);
+    color: black;
+  }
+</style>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script>
+    $('#upload-file-btn').click(function(){
+        console.log("boton")
+        var form_data=new FormData($('#upload-file')[0]);
+        console.log(FormData)
+        $.ajax({
+            type:'POST',
+            url: '/faceid',
+            data: form_data,
+            contentType: false,
+            cache:false,
+            async: false,
+            enctype: 'multipart/form-data',
+            processData: false,
+            dataType:"json",
+            success: function(data){
+                console.log("bien")
+            },
+            error: function(){
+                console.log("mal")
+            }
+        });
+    });
+
+/* parte de precarga imagen */
+    const fileupload = document.getElementById("file-upload");
+    const previewContainer = document.getElementById("imagePreview");
+    const previewImage= previewContainer.querySelector(".image-preview_image");
+    const previewDefaultText = previewContainer.querySelector(".image-preview_default-text");
+
+    fileupload.addEventListener("change", function() {
+        const file = this.files[0];
+        
+        if (file){
+            const reader = new FileReader();
+
+            previewDefaultText.style.display = "none";
+            previewImage.style.display = "block";
+
+            reader.addEventListener("load", function(){
+                previewImage.setAttribute("src", this.result);
+            });
+
+            reader.readAsDataURL(file);
+
+        } else {
+            previewDefaultText.style.display = null;
+            previewImage.style.display = null;
+            previewImage.setAttribute("src","");
+        }
+    });
+</script>

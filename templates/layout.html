@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> Portal Ques-TI </title>
+    <script src="https://kit.fontawesome.com/98f3dfe658.js" crossorigin="anonymous"></script>
+</head>
+<body >
+  <body>
+    <!-- navbar -->
+    <div class="navbar navbar-default navbar-fixed-top navbar-dark " role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/home"><span class="icono fas fa-home"></span></a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav mr-auto">
+            <li><a href="/cuestionario">Encuesta</a></li>
+            <li><a href="/resultados">Resultados encuesta</a></li>
+            <li><a href="/actividad">Tu actividad</a></li>
+            <li><a style="right: -60em;" href="/login" >Salir del portal</a></li>
+          </ul>
+        </div>
+
+      </div>
+    </div><!-- /navbar -->
+    <br>
+    <br>
+    <br>
+</body>
+
+</body>
+</html>
+
+<style>
+  @import "//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css";
+  @import url(https://fonts.googleapis.com/css?family=Squada+One);
+  
+html {
+    position: relative;
+    min-height: 100%;
+    }
+    @import url(https://fonts.googleapis.com/css?family=Squada+One);
+    body {
+    background: #344557 url(http://bit.ly/2gPLxZ4) 0 0 no-repeat;
+    background-size: cover;
+    &:after {
+      content: '';
+      @extend .absolute-centering;
+      background: rgba(#344557, .85);
+    }
+
+}
+}
+
+
+.navbar-brand .icono{
+  font-size: 300px;
+}
+
+
+</style>
+{% block body%}
+{% endblock %}
